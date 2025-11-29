@@ -1,7 +1,7 @@
 import math
 
 def calculator():
-    print("Simple Calculator")
+
     print("Operations: +, -, *, /, sqrt, ^")
 
     op = input("Enter operator (+, -, *, /, sqrt, ^): ").strip().lower()
