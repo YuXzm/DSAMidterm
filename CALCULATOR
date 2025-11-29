@@ -3,16 +3,14 @@ import math
 def calculator():
     print("Simple Calculator")
     print("Operations: +, -, *, /, sqrt, ^")
-    print("Note: For 'sqrt', only enter the first number.")
 
-    op = input("Enter operator (+, -, *, /, sqrt, ^): ")
-
+    op = input("Enter operator (+, -, *, /, sqrt, ^): ").strip().lower()
 
     if op == "sqrt":
         num = float(input("Enter number: "))
         if num < 0:
             return "Error: Cannot take square root of a negative number!"
-        return f"Result: {math.sqrt(num)}"
+        return "Result: " + str(math.sqrt(num))
 
     num1 = float(input("Enter first number: "))
     num2 = float(input("Enter second number: "))
@@ -27,11 +25,11 @@ def calculator():
         if num2 == 0:
             return "Error: Cannot divide by zero!"
         result = num1 / num2
-    elif op == "^":
+    elif op == "^":          
         result = num1 ** num2
     else:
         return "Invalid operator!"
 
-    return f"Result: {result}"
+    return "Result: " + str(result)
 
 print(calculator())
