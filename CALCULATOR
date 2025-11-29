@@ -1,35 +1,50 @@
 import math
 
 def calculator():
+    print("Simple Calculator (+, -, *, /, sqrt, ^). Type 'exit' to quit.")
+    
+    while True:
+        op = input("Operator: ").strip().lower()
+        if op == "exit":
+            print("goodbye ingat ka palagi.")
+            break
 
-    print("Operations: +, -, *, /, sqrt, ^")
+        if op == "sqrt":
+            try:
+                num = float(input("Number: "))
+                if num < 0:
+                    print("Error: Cannot take square root of a negative number!")
+                    continue
+                print("Result:", math.sqrt(num))
+            except ValueError:
+                print("Error: Invalid number!")
+            continue
 
-    op = input("Enter operator (+, -, *, /, sqrt, ^): ").strip().lower()
+        if op not in ["+", "-", "*", "/", "^"]:
+            print("Invalid operator!")
+            continue
 
-    if op == "sqrt":
-        num = float(input("Enter number: "))
-        if num < 0:
-            return "Error: Cannot take square root of a negative number!"
-        return "Result: " + str(math.sqrt(num))
+        try:
+                num1 = float(input("First number: "))
+                num2 = float(input("Second number: "))
+        except ValueError:
+                print("Error: Invalid number!")
+                continue
 
-    num1 = float(input("Enter first number: "))
-    num2 = float(input("Enter second number: "))
+        if op == "+":
+            result = num1 + num2
+        elif op == "-":
+            result = num1 - num2
+        elif op == "*":
+            result = num1 * num2
+        elif op == "/":
+            if num2 == 0:
+                print("Error: Cannot divide by zero!")
+                continue
+            result = num1 / num2
+        elif op == "^":
+            result = num1 ** num2
 
-    if op == "+":
-        result = num1 + num2
-    elif op == "-":
-        result = num1 - num2
-    elif op == "*":
-        result = num1 * num2
-    elif op == "/":
-        if num2 == 0:
-            return "Error: Cannot divide by zero!"
-        result = num1 / num2
-    elif op == "^":          
-        result = num1 ** num2
-    else:
-        return "Invalid operator!"
+        print("Result:", result)
 
-    return "Result: " + str(result)
-
-print(calculator())
+calculator()
