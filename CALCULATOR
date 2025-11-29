@@ -7,14 +7,13 @@ def calculator():
 
     op = input("Enter operator (+, -, *, /, sqrt, ^): ")
 
-    # Square root operation needs only one number
+
     if op == "sqrt":
         num = float(input("Enter number: "))
         if num < 0:
             return "Error: Cannot take square root of a negative number!"
         return f"Result: {math.sqrt(num)}"
 
-    # Other operations need two numbers
     num1 = float(input("Enter first number: "))
     num2 = float(input("Enter second number: "))
 
